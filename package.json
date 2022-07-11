@@ -1,0 +1,24 @@
+{
+    "name" : "node-red-contrib-simple-sip-client",
+	"version"      : "0.0.1",
+    "description"  : "A simple Node Red SIP Client to get notified when an Call is incoming.",
+	"homepage": "https://github.com/Ancient/node-red-contrib-simple-sip-client",
+	"author": "Ancient",
+    "dependencies": {
+    },
+	"keywords": [ "node-red", "sip", "sip client" ],
+    "node-red" : {
+        "nodes": {
+            "sip-incoming": "sip-incoming.js",
+			"sip-server": "sip-server.js"
+        }
+    },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Ancient/node-red-contrib-simple-sip-client.git"
+	},
+	"dependencies": {
+		"sip": "~0.0.6",
+		"underscore": "~1.13.4"
+	}
+}

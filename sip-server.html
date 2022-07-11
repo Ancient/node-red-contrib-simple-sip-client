@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    RED.nodes.registerType('sip-server',{
+        category: 'config',
+        defaults: {
+            host: {value:"localhost",required:true},
+            port: {value:5060,required:true,validate:RED.validators.number()},
+			debug: {value: false,required: true},
+        },
+		credentials: {
+			username: {type:"text"},
+			password: {type:"password"}
+		},
+        label: function() {
+            return this.host+":"+this.port;
+        },
+		oneditprepare: function () {
+		  // For backward compatibility
+		  if ($('#node-config-input-username').val() !== "") {
+			$('#node-config-input-user').val($('#node-config-input-username').val())
+		  }
+ 
+		}
+    });
+</script>
+
+<script type="text/html" data-template-name="sip-server">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-bookmark"></i> Host</label>
+        <input type="text" id="node-config-input-host">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa fa-bookmark"></i> Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+	<div class="form-row">
+		  <label for="node-config-input-username"><i class="fa fa-user"></i> Username</label>
+		  <input type="text" id="node-config-input-user" />
+		  <input type="hidden" id="node-config-input-username"/>
+	  </div>
+	  <div class="form-row">
+		  <label for="node-config-input-password"><i class="fa fa-key"></i> Password</label>
+		  <input type="password" id="node-config-input-password" />
+	  </div>
+	  <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-config-input-debug" placeholder="" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-config-input-debug" style="width: 70%;">Enable Debug</label>
+      </div>
+</script>
